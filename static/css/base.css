@@ -56,6 +56,14 @@ body {
     border: 1px solid black !important;
 }
 
+.bg-black {
+    background: #000 !important;
+}
+
+.header-container {
+        padding-top: 164px;
+    }
+
 /* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
