@@ -70,9 +70,6 @@ body {
     z-index: -1;
 }
 
-.header-container {
-        padding-top: 164px;
-    }
 
 /* -------------------------------- Media Queries */
 
@@ -95,5 +92,16 @@ body {
 
     .header-container {
         padding-top: 164px;
+    }
+}
+
+/* pad the top a bit when navbar is collapsed on mobile */
+@media (max-width: 991px) {
+    .header-container {
+        padding-top: 144px;
+    }
+
+    body {
+        height: calc(100vh - 144px);
     }
 }
