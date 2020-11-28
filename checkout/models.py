@@ -6,6 +6,7 @@ from django.conf import settings
 
 from products.models import Product
 
+
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
@@ -30,7 +31,8 @@ class Order(models.Model):
 
     def update_total(self):
         """
-        Update grand total each time a line item is added, accounting for delivery costs.
+        Update grand total each time a line item is 
+        added, accounting for delivery costs.
         """
         self.order_total = self.lineitems.aggregate(Sum('lineitem_total'))['lineitem_total_sum']
         if self.order_total < settings.FREE_DELIVERY_THRESHOLD:
@@ -50,6 +52,7 @@ class Order(models.Model):
 
     def __str__(self):
         return self.order_number
+
 
 class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False, on_delete=models.CASCADE, related_name='lineitems')
